@@ -1,7 +1,11 @@
+import ProductsList from "../components/ProductsList";
+
 const Home = () => {
   return (
     <>
-      <div>Home</div>
+      <h1>Welcome to BearBasket!</h1>
+      <p>Your one-stop shop for all your Basket needs.</p>
+      <ProductsList />
     </>
   );
 };

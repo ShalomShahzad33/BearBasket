@@ -3,7 +3,7 @@ import type { Product } from "../Types/Product";
 
 type CartStoreType = {
   cartItems: Product[];
-  addToCart: (product: Product, qty: number) => void;
+  addToCart: (product: Product) => void;
   removeFromCart: (productId: number) => void;
   clearCart: () => void;
 };
@@ -20,7 +20,7 @@ export const CartStore = create<CartStoreType>((set) => ({
         return {
           cartItems: state.cartItems.map((item) =>
             item.id === product.id
-              ? { ...item, cartQty: item.cartQty + 1 }
+              ? { ...item, cartQty: item.cartQty! + 1 }
               : item,
           ),
         };
