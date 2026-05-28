@@ -3,5 +3,8 @@ export type Product = {
   name: string;
   price: number;
   imageUrl: string;
-  cartQty?: number;
+};
+
+export type CartItem = Product & {
+  cartQty: number;
 };
