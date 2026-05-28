@@ -1,75 +1,132 @@
-# React + TypeScript + Vite
+# BearBasket 🐻🧺
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern e-commerce cart demo built with React, TypeScript, Zustand, and Tailwind CSS.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🌐 Live Demo
 
-## React Compiler
+Try BearBasket in your browser — no install required:
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+**👉 [https://bear-basket.vercel.app/](https://bear-basket.vercel.app/)**
 
-Note: This will impact Vite dev & build performances.
+Hosted on [Vercel](https://vercel.com/).
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## ✨ Highlights
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- 🛍️ Product catalog with responsive card layout
+- ➕ Add-to-cart interactions with animated feedback
+- 🧮 Quantity-aware cart total and order summary
+- 🗑️ Remove item + clear cart actions
+- 💾 Persistent cart state using `zustand/middleware/persist`
+- 🎨 Clean modern UI with Tailwind CSS + Lucide icons
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 🧱 Tech Stack
+
+- **Frontend:** React 19 + TypeScript
+- **Routing:** React Router
+- **State Management:** Zustand
+- **Styling:** Tailwind CSS 4
+- **Build Tool:** Vite
+- **Linting:** ESLint + TypeScript ESLint + React Hooks plugin
+
+---
+
+## 🗂️ Project Structure
+
+```text
+BearBasket/
+├── src/
+│   ├── assets/               # Product images
+│   ├── components/
+│   │   ├── Header.tsx
+│   │   └── ProductsList.tsx
+│   ├── constants/
+│   │   └── Products.ts       # Static product seed data
+│   ├── pages/
+│   │   ├── Home.tsx
+│   │   ├── Cart.tsx
+│   │   └── Layout.tsx
+│   ├── store/
+│   │   └── CartStore.ts      # Zustand cart logic
+│   ├── Types/
+│   │   └── Product.ts
+│   ├── index.css
+│   └── main.tsx
+├── vite.config.ts
+├── eslint.config.js
+└── package.json
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🚀 Getting Started
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### 1) Clone the repo
+
+```bash
+git clone https://github.com/ShalomShahzad33/BearBasket
+cd BearBasket
 ```
+
+### 2) Install dependencies
+
+```bash
+npm install
+```
+
+### 3) Start development server
+
+```bash
+npm run dev
+```
+
+Open the local URL shown in terminal (usually `http://localhost:5173`).
+
+---
+
+## 📜 Available Scripts
+
+- `npm run dev` - start Vite dev server
+- `npm run build` - type-check and build production bundle
+- `npm run preview` - preview production build locally
+- `npm run lint` - run ESLint across the project
+
+---
+
+## 🧠 How Cart State Works
+
+- Cart data lives in `src/store/CartStore.ts`.
+- `addToCart` either increments quantity or inserts a new item.
+- `removeFromCart` removes an item by normalized numeric ID.
+- `clearCart` empties the basket.
+- Data is persisted under `cart-storage` in browser storage so refreshes keep cart state.
+
+---
+
+## 🎯 Current UX Features
+
+- Beautiful dark-themed storefront hero and product grid
+- Add-to-cart success badge and button state transition
+- Rich cart page with:
+  - empty state design
+  - item quantity display
+  - order summary with total item count
+  - free shipping display
+  - remove and clear-cart controls
+
+---
+
+## ⭐ Star on GitHub
+
+If BearBasket helped you learn something new — or you just like the UI — a star goes a long way. It helps others find the project and keeps development moving.
+
+---
+
+## 📄 License
+
+[MIT](https://mit-license.org/)
